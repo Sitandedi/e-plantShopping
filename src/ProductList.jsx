@@ -264,6 +264,10 @@ function ProductList({ onHomeClick }) {
         }));
     }
 
+    const handleRemoveItem = (item) => {
+        dispatch(removeItem());
+    }
+
     return (
         
         <div>
