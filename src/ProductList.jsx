@@ -258,7 +258,7 @@ function ProductList({ onHomeClick }) {
     };
 
     const handleAddToCart = (product) => {
-        dispatch(addItem.product);
+        console.log("Adding to cart:",product.name);
         setAddedToCart((prevState) => ({
             ...prevState, [product.name]: true
         }));
@@ -302,11 +302,17 @@ function ProductList({ onHomeClick }) {
                                         item.plants.map((plant, plantIndex) => (
                                             <>
                                                 <div className='product-card' key={plantIndex}>
-                                                    <img className='product-image' src={plant.image} alt={plant.name} />    //dispay the plant image or alt text
-                                                    <div className='product-title'>{plant.name}</div>         //dispay the plant name
+                                                    <img className='product-image' src={plant.image} alt={plant.name} /> 
+                                                    <div className='product-title'>{plant.name}</div>  
                                                     <div className='product-description'>{plant.description}</div>
                                                     <div className='product-cost'>${plant.cost}</div>
-                                                    <button className={`product-button ${addedToCart[plant.name] ? 'btn-disabled' : ''}`} onClick={() => handleAddToCart(plant)} disabled={addedToCart[plant.name]}>{addedToCart[plant.name] ? "Added to Cart" : "Add to Cart"}</button>    // Handle adding plant to cart
+                                                    <button 
+                                                        className={`product-button ${addedToCart[plant.name] ? 'btn-disabled' : ''}`} 
+                                                        onClick={() => handleAddToCart(plant)} 
+                                                        disabled={addedToCart[plant.name]}
+                                                    >
+                                                            {addedToCart[plant.name] ? "Added to Cart" : "Add to Cart"}
+                                                    </button> 
                                                     
                                                 </div>
                                             </>
