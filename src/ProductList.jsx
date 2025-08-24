@@ -262,10 +262,11 @@ function ProductList({ onHomeClick }) {
         setAddedToCart((prevState) => ({
             ...prevState, [product.name]: true
         }));
+        dispatch(addItem(product));
     }
 
     const handleRemoveItem = (item) => {
-        dispatch(removeItem());
+        dispatch(removeItem(item));
     }
 
     return (
